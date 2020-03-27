@@ -10,7 +10,7 @@ namespace Kolekcje
     {
         static void Main(string[] args)
         {
-            string[] montsOfYear =
+            string[] monthsOfYear =
             {
                 "January",
                 "February",
@@ -26,6 +26,22 @@ namespace Kolekcje
                 "Desember",
 
             };
+
+
+            Console.WriteLine(" Jaki chcesz wyśw miesiąc ?");
+            Console.WriteLine("Januar =1, February = 2 etc : ");
+
+            int month = int.Parse(Console.ReadLine())-1;
+            string chosenMonth = monthsOfYear[month];
+            Console.WriteLine($"Wybrany miesiąc to: {chosenMonth}");
+
+            //foreach (var month in monthsOfYear)
+            //{
+            //    Console.WriteLine(month);
+               
+
+            //}
+            Console.ReadKey();
         }
     }
 }
