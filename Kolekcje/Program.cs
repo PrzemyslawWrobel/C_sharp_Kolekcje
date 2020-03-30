@@ -32,8 +32,22 @@ namespace Kolekcje
             Console.WriteLine("Januar =1, February = 2 etc : ");
 
             int month = int.Parse(Console.ReadLine())-1;
-            string chosenMonth = monthsOfYear[month];
-            Console.WriteLine($"Wybrany miesiąc to: {chosenMonth}");
+            if(month <1)
+            {
+                Console.WriteLine("Nr miesiąca musi być większy od 0");
+                Console.WriteLine("Podaj miesiąc");
+                month = int.Parse(Console.ReadLine()) - 1;
+            } else if (month > 11){
+                Console.WriteLine("Nr miesiąca musi być mniejszy lub równy 12");
+                Console.WriteLine("Podaj miesiąc");
+                month = int.Parse(Console.ReadLine()) - 1;
+            } else
+            {
+                string chosenMonth = monthsOfYear[month];
+                Console.WriteLine($"Wybrany miesiąc to: {chosenMonth}");
+            }
+
+            
 
             //foreach (var month in monthsOfYear)
             //{
