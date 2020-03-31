@@ -16,18 +16,19 @@ namespace Kolekcje
             _csvFilePath = csvFilePath;
         }
 
-        public City[] ReadFirstNCitys(int nCitys)
+        public List<City> ReadAllCitys()
         {
-            City[] cities = new City[nCitys];
+            List<City> cities = new List<City>();
 
             using (StreamReader streamReader = new StreamReader(_csvFilePath))
             {
                 //read Header Line
                 streamReader.ReadLine();
-                for (int i = 0; i < nCitys; i++)
+                string csvLine;
+
+                while ((csvLine = streamReader.ReadLine()) != null)
                 {
-                    string csvLine = streamReader.ReadLine();
-                    cities[i] = ReadCityFromCsvLine(csvLine);
+                    cities.Add(ReadCityFromCsvLine(csvLine));
                 }
             }
             return cities;

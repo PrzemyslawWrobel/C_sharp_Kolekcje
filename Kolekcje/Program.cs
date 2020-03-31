@@ -15,11 +15,22 @@ namespace Kolekcje
 
 
             CsvReader csvReader = new CsvReader(filePath);
-            City[] cities = csvReader.ReadFirstNCitys(7);
+            List<City> cities = csvReader.ReadAllCitys();
+
+            City cityTest = new City("Test", "Tes", "Polska", 4500, 2000, 2500);
+            int index = cities.FindIndex(city => city.TotalPopulation < 4500);
+            cities.Insert(index, cityTest);
+
+            cities.RemoveAt(index);
+
             foreach (var city in cities)
             {
                 Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
+
+            
+          
+            Console.WriteLine($"{ cities.Count} Cities");
         //{
         //    string[] monthsOfYear =
         //    {
