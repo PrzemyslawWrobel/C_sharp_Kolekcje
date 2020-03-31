@@ -18,7 +18,7 @@ namespace Kolekcje
             City[] cities = csvReader.ReadFirstNCitys(7);
             foreach (var city in cities)
             {
-                Console.WriteLine($"{city.TotalPopulation} : {city.CityCode} : {city.CityName}");
+                Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
         //{
         //    string[] monthsOfYear =
@@ -66,7 +66,7 @@ namespace Kolekcje
 
 
             //    //}
-            //    Console.ReadKey();
+               Console.ReadKey();
         }
     }
 }
