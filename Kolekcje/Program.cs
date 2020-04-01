@@ -28,6 +28,23 @@ namespace Kolekcje
                 Console.WriteLine(customer.Name);
                 Console.WriteLine("ilość w kolejce: " + queue.Count);
             }
+
+            Stack<Book> stack = new Stack<Book>();
+
+            stack.Push(new Book { NameBook = "Book 1" });
+            stack.Push(new Book { NameBook = "Book 2" });
+            stack.Push(new Book { NameBook = "Book 3" });
+            stack.Push(new Book { NameBook = "Book 4" });
+            stack.Push(new Book { NameBook = "Book 5" });
+
+            
+            while (stack.Count > 0)
+            {
+                var book = stack.Pop();
+                Console.WriteLine(book.NameBook);
+                Console.WriteLine("ilość na stosie: " + stack.Count);
+            }
+
             //string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
 
 
