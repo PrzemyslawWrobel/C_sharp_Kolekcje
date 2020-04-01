@@ -10,42 +10,59 @@ namespace Kolekcje
     {
         static void Main(string[] args)
         {
+            Queue<Customer> queue = new Queue<Customer>();
 
-            string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
+            queue.Enqueue(new Customer { Name = "Marcin" });
+            queue.Enqueue(new Customer { Name = "Tom" });
+            queue.Enqueue(new Customer { Name = "Aga" });
+            queue.Enqueue(new Customer { Name = "Ola" });
+            queue.Enqueue(new Customer { Name = "Piotr" });
+            queue.Enqueue(new Customer { Name = "Iza" });
 
+            //Dequeue - pobiera z koleiki i usuwa go z kolejki
+         
 
-            CsvReader csvReader = new CsvReader(filePath);
-            List<City> cities = csvReader.ReadAllCitys();
-
-            City cityTest = new City("Test", "Tes", "Polska", 4500, 2000, 2500);
-            int index = cities.FindIndex(city => city.TotalPopulation < 4500);
-            cities.Insert(index, cityTest);
-
-            cities.RemoveAt(index);
-
-            foreach (var city in cities)
+            while (queue.Count > 0)
             {
-                Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
+                var customer = queue.Dequeue();
+                Console.WriteLine(customer.Name);
+                Console.WriteLine("ilość w kolejce: " + queue.Count);
             }
+            //string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
 
-            
-          
-            Console.WriteLine($"{ cities.Count} Cities");
-        //{
-        //    string[] monthsOfYear =
-        //    {
-        //        "January",
-        //        "February",
-        //        "March",
-        //        "April",
-        //        "Maj",
-        //        "June",
-        //        "Julay",
-        //        "August",
-        //        "September",
-        //        "October",
-        //        "November",
-        //        "Desember",
+
+            //CsvReader csvReader = new CsvReader(filePath);
+            //List<City> cities = csvReader.ReadAllCitys();
+
+            //City cityTest = new City("Test", "Tes", "Polska", 4500, 2000, 2500);
+            //int index = cities.FindIndex(city => city.TotalPopulation < 4500);
+            //cities.Insert(index, cityTest);
+
+            //cities.RemoveAt(index);
+
+            //foreach (var city in cities)
+            //{
+            //    Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
+            //}
+
+
+
+            //Console.WriteLine($"{ cities.Count} Cities");
+            //{
+            //    string[] monthsOfYear =
+            //    {
+            //        "January",
+            //        "February",
+            //        "March",
+            //        "April",
+            //        "Maj",
+            //        "June",
+            //        "Julay",
+            //        "August",
+            //        "September",
+            //        "October",
+            //        "November",
+            //        "Desember",
 
             //    };
 
@@ -77,7 +94,7 @@ namespace Kolekcje
 
 
             //    //}
-               Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }
