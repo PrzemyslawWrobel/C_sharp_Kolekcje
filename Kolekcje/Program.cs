@@ -30,9 +30,10 @@ namespace Kolekcje
             int maxToDisplay = userInput;
 
             //for (int i = 0;  i < maxToDisplay; i++ )
-            for (int i = 0;  i < cities.Count; i++ )
+            for (int i = cities.Count-1;  i >= 0; i-- )
             {
-                if (i > 0 && (i % maxToDisplay == 0))
+                int displayIndex = cities.Count - 1 - i;
+                if (displayIndex > 0 && (displayIndex % maxToDisplay == 0))
                 {
                     Console.WriteLine("Naciśnij enter by kontynułować, lub wpisz coś i naciśnij enter");
                     if (Console.ReadLine() != "")
@@ -40,7 +41,7 @@ namespace Kolekcje
                 }
 
                 City city = cities[i];
-                Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
+                Console.WriteLine($"{displayIndex + 1} : {city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
 
             //Queue<Customer> queue = new Queue<Customer>();
