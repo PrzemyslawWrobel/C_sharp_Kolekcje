@@ -16,7 +16,19 @@ namespace Kolekcje
 
             List<City> cities = csvReader.ReadAllCitys();
 
-            for (int i = 0;  i < cities.Count; i++ )
+            Console.Write("Podaj liczbę miast do  wyświetlenia");
+
+            bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
+
+            if(!inputIsInt || userInput <=0)
+            {
+                Console.WriteLine("Liczba musi być większa od 0");
+                return;
+            }
+
+            int maxToDisplay = Math.Min(userInput, cities.Count);
+
+            for (int i = 0;  i < maxToDisplay; i++ )
             {
                 City city = cities[i];
                 Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
