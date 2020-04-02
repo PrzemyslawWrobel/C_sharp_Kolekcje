@@ -10,45 +10,57 @@ namespace Kolekcje
     {
         static void Main(string[] args)
         {
-            Queue<Customer> queue = new Queue<Customer>();
+            string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
 
-            queue.Enqueue(new Customer { Name = "Marcin" });
-            queue.Enqueue(new Customer { Name = "Tom" });
-            queue.Enqueue(new Customer { Name = "Aga" });
-            queue.Enqueue(new Customer { Name = "Ola" });
-            queue.Enqueue(new Customer { Name = "Piotr" });
-            queue.Enqueue(new Customer { Name = "Iza" });
+            CsvReader csvReader = new CsvReader(filePath);
 
-            //Dequeue - pobiera z koleiki i usuwa go z kolejki
-         
+            List<City> cities = csvReader.ReadAllCitys();
 
-            while (queue.Count > 0)
+            for (int i = 0;  i < cities.Count; i++ )
             {
-                var customer = queue.Dequeue();
-                Console.WriteLine(customer.Name);
-                Console.WriteLine("ilość w kolejce: " + queue.Count);
+                City city = cities[i];
+                Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
 
-            Stack<Book> stack = new Stack<Book>();
+            //Queue<Customer> queue = new Queue<Customer>();
 
-            stack.Push(new Book { NameBook = "Book 1" });
-            stack.Push(new Book { NameBook = "Book 2" });
-            stack.Push(new Book { NameBook = "Book 3" });
-            stack.Push(new Book { NameBook = "Book 4" });
-            stack.Push(new Book { NameBook = "Book 5" });
+            //queue.Enqueue(new Customer { Name = "Marcin" });
+            //queue.Enqueue(new Customer { Name = "Tom" });
+            //queue.Enqueue(new Customer { Name = "Aga" });
+            //queue.Enqueue(new Customer { Name = "Ola" });
+            //queue.Enqueue(new Customer { Name = "Piotr" });
+            //queue.Enqueue(new Customer { Name = "Iza" });
 
-            
-            while (stack.Count > 0)
-            {
-                var book = stack.Pop();
-                Console.WriteLine(book.NameBook);
-                Console.WriteLine("ilość na stosie: " + stack.Count);
-            }
+            ////Dequeue - pobiera z koleiki i usuwa go z kolejki
+
+
+            //while (queue.Count > 0)
+            //{
+            //    var customer = queue.Dequeue();
+            //    Console.WriteLine(customer.Name);
+            //    Console.WriteLine("ilość w kolejce: " + queue.Count);
+            //}
+
+            //Stack<Book> stack = new Stack<Book>();
+
+            //stack.Push(new Book { NameBook = "Book 1" });
+            //stack.Push(new Book { NameBook = "Book 2" });
+            //stack.Push(new Book { NameBook = "Book 3" });
+            //stack.Push(new Book { NameBook = "Book 4" });
+            //stack.Push(new Book { NameBook = "Book 5" });
+
+
+            //while (stack.Count > 0)
+            //{
+            //    var book = stack.Pop();
+            //    Console.WriteLine(book.NameBook);
+            //    Console.WriteLine("ilość na stosie: " + stack.Count);
+            //}
 
             //string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
 
-
             //CsvReader csvReader = new CsvReader(filePath);
+
             //List<City> cities = csvReader.ReadAllCitys();
 
             //City cityTest = new City("Test", "Tes", "Polska", 4500, 2000, 2500);
