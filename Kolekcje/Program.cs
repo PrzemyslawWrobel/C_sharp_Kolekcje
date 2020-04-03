@@ -10,39 +10,48 @@ namespace Kolekcje
     {
         static void Main(string[] args)
         {
+            #region Cz. wspólna
             string filePath = @"C:\Z_Moje Dane\Prywatne\Projekty_Prywatne\C_sharp_Kolekcje\Miasta.csv";
 
             CsvReader csvReader = new CsvReader(filePath);
 
             List<City> cities = csvReader.ReadAllCitys();
+            #endregion
+            #region LinQ
 
-            Console.Write("Podaj liczbę miast do  wyświetlenia: ");
-
-            bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
-
-            if(!inputIsInt || userInput <=0)
+            foreach (var city in cities.Take(4))
             {
-                Console.WriteLine("Liczba musi być większa od 0");
-                return;
+                Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
 
-            // int maxToDisplay = Math.Min(userInput, cities.Count);
-            int maxToDisplay = userInput;
+            #endregion
+            //    Console.Write("Podaj liczbę miast do  wyświetlenia: ");
 
-            //for (int i = 0;  i < maxToDisplay; i++ )
-            for (int i = cities.Count-1;  i >= 0; i-- )
-            {
-                int displayIndex = cities.Count - 1 - i;
-                if (displayIndex > 0 && (displayIndex % maxToDisplay == 0))
-                {
-                    Console.WriteLine("Naciśnij enter by kontynułować, lub wpisz coś i naciśnij enter");
-                    if (Console.ReadLine() != "")
-                        break;
-                }
+            //    bool inputIsInt = int.TryParse(Console.ReadLine(), out int userInput);
 
-                City city = cities[i];
-                Console.WriteLine($"{displayIndex + 1} : {city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
-            }
+            //    if(!inputIsInt || userInput <=0)
+            //    {
+            //        Console.WriteLine("Liczba musi być większa od 0");
+            //        return;
+            //    }
+
+            //    // int maxToDisplay = Math.Min(userInput, cities.Count);
+            //    int maxToDisplay = userInput;
+
+            //    //for (int i = 0;  i < maxToDisplay; i++ )
+            //    for (int i = cities.Count-1;  i >= 0; i-- )
+            //    {
+            //        int displayIndex = cities.Count - 1 - i;
+            //        if (displayIndex > 0 && (displayIndex % maxToDisplay == 0))
+            //        {
+            //            Console.WriteLine("Naciśnij enter by kontynułować, lub wpisz coś i naciśnij enter");
+            //            if (Console.ReadLine() != "")
+            //                break;
+            //        }
+
+            //        City city = cities[i];
+            //        Console.WriteLine($"{displayIndex + 1} : {city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
+            //    }
 
             //Queue<Customer> queue = new Queue<Customer>();
 
