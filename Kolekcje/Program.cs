@@ -19,7 +19,7 @@ namespace Kolekcje
             #endregion
             #region LinQ
 
-            foreach (var city in cities.OrderBy(x=>x.CityName))
+            foreach (var city in cities.OrderBy(x=>x.CityName).Take(4))
             {
                 Console.WriteLine($"{city.TotalPopulation:### ### ###} : {city.CityCode} : {city.CityName}");
             }
